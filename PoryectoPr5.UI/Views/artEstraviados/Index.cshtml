@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProyectoPr5.DAL.artEstraviados>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCustodia.cshtml";
+}
+
+<h2>Articulos Extraviados Actualmente</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nombre del Articulo")
+        </th>
+        <th>
+            @Html.DisplayName("Fecha de Ingreso")
+        </th>
+        <th>
+            @Html.DisplayName("Descripcion Articulo")
+        </th>
+        <th>
+            @Html.DisplayName("Categoria")
+        </th>
+        <th>
+            @Html.DisplayName("Ingresado Por")
+        </th>
+        <th>
+            @Html.DisplayName("Contacto")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaIngreso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria.nombreCategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IngresadoPor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono_Contacto)
+        </td>
+        <td>
+            @Html.ActionLink("Articulo encontrado. Mover a Custodia", "Delete", new { id = item.idArticuloExt })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<p>
+    @Html.ActionLink("Agregar nuevo articulo Extraviado", "Create")
+</p>

@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProyectoPR5Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="artCustodia">
+          <Key>
+            <PropertyRef Name="idArticuloCus" />
+          </Key>
+          <Property Name="idArticuloCus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="20" />
+          <Property Name="idCategoria" Type="int" />
+          <Property Name="FechaIngreso" Type="datetime" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="artEntregados">
+          <Key>
+            <PropertyRef Name="idArticuloEnt" />
+          </Key>
+          <Property Name="idArticuloEnt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="20" />
+          <Property Name="idCategoria" Type="int" />
+          <Property Name="FechaIngreso" Type="datetime" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="artEstraviados">
+          <Key>
+            <PropertyRef Name="idArticuloExt" />
+          </Key>
+          <Property Name="idArticuloExt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="20" />
+          <Property Name="idCategoria" Type="int" />
+          <Property Name="FechaIngreso" Type="datetime" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="IngresadoPor" Type="varchar" MaxLength="200" />
+          <Property Name="Telefono Contacto" Type="int" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCategoria" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cedula" Type="varchar" MaxLength="20" />
+          <Property Name="pass" Type="varchar" MaxLength="20" />
+          <Property Name="idRol" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="telefono" Type="int" />
+          <Property Name="correo" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__artCustod__idCat__3F466844">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+          <End Role="artCustodia" Type="Self.artCustodia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="artCustodia">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__artEntreg__idCat__403A8C7D">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+          <End Role="artEntregados" Type="Self.artEntregados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="artEntregados">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProyectoPR5ModelStoreContainer">
+          <EntitySet Name="artCustodia" EntityType="Self.artCustodia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="artEntregados" EntityType="Self.artEntregados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="artEstraviados" EntityType="Self.artEstraviados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__artCustod__idCat__3F466844" Association="Self.FK__artCustod__idCat__3F466844">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="artCustodia" EntitySet="artCustodia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__artEntreg__idCat__403A8C7D" Association="Self.FK__artEntreg__idCat__403A8C7D">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="artEntregados" EntitySet="artEntregados" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProyectoPR5Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cedula" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="idRol" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="Int32" />
+          <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ProyectoPR5Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <EntitySet Name="artCustodia" EntityType="ProyectoPR5Model.artCustodia" />
+          <EntitySet Name="artEntregados" EntityType="ProyectoPR5Model.artEntregados" />
+          <EntitySet Name="artEstraviados" EntityType="ProyectoPR5Model.artEstraviados" />
+          <EntitySet Name="Categoria" EntityType="ProyectoPR5Model.Categoria" />
+          <AssociationSet Name="FK__artCustod__idCat__5812160E" Association="ProyectoPR5Model.FK__artCustod__idCat__5812160E">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="artCustodia" EntitySet="artCustodia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__artEntreg__idCat__5AEE82B9" Association="ProyectoPR5Model.FK__artEntreg__idCat__5AEE82B9">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="artEntregados" EntitySet="artEntregados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__artEstrav__idCat__5DCAEF64" Association="ProyectoPR5Model.FK__artEstrav__idCat__5DCAEF64">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="artEstraviados" EntitySet="artEstraviados" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="artCustodia">
+          <Key>
+            <PropertyRef Name="idArticuloCus" />
+          </Key>
+          <Property Name="idArticuloCus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="idCategoria" Type="Int32" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="3" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Categoria" Relationship="ProyectoPR5Model.FK__artCustod__idCat__5812160E" FromRole="artCustodia" ToRole="Categoria" />
+        </EntityType>
+        <EntityType Name="artEntregados">
+          <Key>
+            <PropertyRef Name="idArticuloEnt" />
+          </Key>
+          <Property Name="idArticuloEnt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="idCategoria" Type="Int32" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="3" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Categoria" Relationship="ProyectoPR5Model.FK__artEntreg__idCat__5AEE82B9" FromRole="artEntregados" ToRole="Categoria" />
+        </EntityType>
+        <EntityType Name="artEstraviados">
+          <Key>
+            <PropertyRef Name="idArticuloExt" />
+          </Key>
+          <Property Name="idArticuloExt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="idCategoria" Type="Int32" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="3" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Categoria" Relationship="ProyectoPR5Model.FK__artEstrav__idCat__5DCAEF64" FromRole="artEstraviados" ToRole="Categoria" />
+          <Property Name="IngresadoPor" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono_Contacto" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCategoria" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="artCustodia" Relationship="ProyectoPR5Model.FK__artCustod__idCat__5812160E" FromRole="Categoria" ToRole="artCustodia" />
+          <NavigationProperty Name="artEntregados" Relationship="ProyectoPR5Model.FK__artEntreg__idCat__5AEE82B9" FromRole="Categoria" ToRole="artEntregados" />
+          <NavigationProperty Name="artEstraviados" Relationship="ProyectoPR5Model.FK__artEstrav__idCat__5DCAEF64" FromRole="Categoria" ToRole="artEstraviados" />
+        </EntityType>
+        <Association Name="FK__artCustod__idCat__5812160E">
+          <End Type="ProyectoPR5Model.Categoria" Role="Categoria" Multiplicity="0..1" />
+          <End Type="ProyectoPR5Model.artCustodia" Role="artCustodia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="artCustodia">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__artEntreg__idCat__5AEE82B9">
+          <End Type="ProyectoPR5Model.Categoria" Role="Categoria" Multiplicity="0..1" />
+          <End Type="ProyectoPR5Model.artEntregados" Role="artEntregados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="artEntregados">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__artEstrav__idCat__5DCAEF64">
+          <End Type="ProyectoPR5Model.Categoria" Role="Categoria" Multiplicity="0..1" />
+          <End Type="ProyectoPR5Model.artEstraviados" Role="artEstraviados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="artEstraviados">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProyectoPR5ModelStoreContainer" CdmEntityContainer="ProyectoPR5Entities">
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="ProyectoPR5Model.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="artCustodia">
+            <EntityTypeMapping TypeName="ProyectoPR5Model.artCustodia">
+              <MappingFragment StoreEntitySet="artCustodia">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idArticuloCus" ColumnName="idArticuloCus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="artEntregados">
+            <EntityTypeMapping TypeName="ProyectoPR5Model.artEntregados">
+              <MappingFragment StoreEntitySet="artEntregados">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idArticuloEnt" ColumnName="idArticuloEnt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="artEstraviados">
+            <EntityTypeMapping TypeName="ProyectoPR5Model.artEstraviados">
+              <MappingFragment StoreEntitySet="artEstraviados">
+                <ScalarProperty Name="Telefono_Contacto" ColumnName="Telefono Contacto" />
+                <ScalarProperty Name="IngresadoPor" ColumnName="IngresadoPor" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idArticuloExt" ColumnName="idArticuloExt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="ProyectoPR5Model.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProyectoPr5.DAL.artCustodia>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCustodia.cshtml";
+}
+
+<h2>Articulos Actuales en custodia</h2>
+
+<p>
+    @Html.ActionLink("Agregar Nuevo Articulo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nombre del Articulo")
+        </th>
+        <th>
+            @Html.DisplayName("Fecha de Ingreso al sistema")
+        </th>
+        <th>
+            @Html.DisplayName("Descripcion")
+        </th>
+        <th>
+            @Html.DisplayName("Categoria")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaIngreso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria.nombreCategoria)
+        </td>
+        <td>
+      
+            @Html.ActionLink("Entregar Articulo a su Dueño", "Delete", new { id=item.idArticuloCus })
+        </td>
+    </tr>
+}
+
+</table>

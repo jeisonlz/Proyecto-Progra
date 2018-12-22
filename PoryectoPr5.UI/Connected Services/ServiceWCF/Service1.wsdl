@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:51466/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:51466/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:51466/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ProyectoPr5.DAL" />
+      <xsd:import schemaLocation="http://localhost:51466/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ProyectoPr5.BL.WCF1" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_registrarUsuarioNuevo_InputMessage">
+    <wsdl:part name="parameters" element="tns:registrarUsuarioNuevo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_registrarUsuarioNuevo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:registrarUsuarioNuevoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CambiarRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:CambiarRol" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CambiarRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CambiarRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_NuevaCategoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:NuevaCategoria" />
+  </wsdl:message>
+  <wsdl:message name="IService1_NuevaCategoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NuevaCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CambiarCategoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:CambiarCategoria" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CambiarCategoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CambiarCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarArt_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarArt" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarArt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarArtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarArtExtraviados_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarArtExtraviados" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarArtExtraviados_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarArtExtraviadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarArtExtraviados_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarArtExtraviados" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarArtExtraviados_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarArtExtraviadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarArtCustodia_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarArtCustodia" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarArtCustodia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarArtCustodiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="registrarUsuarioNuevo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/registrarUsuarioNuevo" message="tns:IService1_registrarUsuarioNuevo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/registrarUsuarioNuevoResponse" message="tns:IService1_registrarUsuarioNuevo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CambiarRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CambiarRol" message="tns:IService1_CambiarRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CambiarRolResponse" message="tns:IService1_CambiarRol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NuevaCategoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/NuevaCategoria" message="tns:IService1_NuevaCategoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/NuevaCategoriaResponse" message="tns:IService1_NuevaCategoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CambiarCategoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CambiarCategoria" message="tns:IService1_CambiarCategoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CambiarCategoriaResponse" message="tns:IService1_CambiarCategoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarArt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarArt" message="tns:IService1_AgregarArt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarArtResponse" message="tns:IService1_AgregarArt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarArtExtraviados">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarArtExtraviados" message="tns:IService1_AgregarArtExtraviados_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarArtExtraviadosResponse" message="tns:IService1_AgregarArtExtraviados_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarArtExtraviados">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EliminarArtExtraviados" message="tns:IService1_EliminarArtExtraviados_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EliminarArtExtraviadosResponse" message="tns:IService1_EliminarArtExtraviados_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarArtCustodia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EliminarArtCustodia" message="tns:IService1_EliminarArtCustodia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EliminarArtCustodiaResponse" message="tns:IService1_EliminarArtCustodia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="registrarUsuarioNuevo">
+      <soap:operation soapAction="http://tempuri.org/IService1/registrarUsuarioNuevo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CambiarRol">
+      <soap:operation soapAction="http://tempuri.org/IService1/CambiarRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NuevaCategoria">
+      <soap:operation soapAction="http://tempuri.org/IService1/NuevaCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CambiarCategoria">
+      <soap:operation soapAction="http://tempuri.org/IService1/CambiarCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarArt">
+      <soap:operation soapAction="http://tempuri.org/IService1/AgregarArt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarArtExtraviados">
+      <soap:operation soapAction="http://tempuri.org/IService1/AgregarArtExtraviados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarArtExtraviados">
+      <soap:operation soapAction="http://tempuri.org/IService1/EliminarArtExtraviados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarArtCustodia">
+      <soap:operation soapAction="http://tempuri.org/IService1/EliminarArtCustodia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:51466/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

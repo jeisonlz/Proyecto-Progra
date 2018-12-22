@@ -1,0 +1,57 @@
+﻿@model ProyectoPr5.DAL.artCustodia
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutCustodia.cshtml";
+}
+
+<h2>Entregar articulo a su dueño</h2>
+
+<h3>¿Seguro de esta Accion?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.nombreCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.nombreCategoria)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Devolver articulo" class="btn btn-default" /> |
+            @Html.ActionLink("Devolver mas Articulos", "Index")
+        </div>
+    }
+</div>

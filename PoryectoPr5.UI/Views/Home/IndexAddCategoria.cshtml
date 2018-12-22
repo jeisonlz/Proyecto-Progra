@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "IndexAddCategoria";
+    Layout = "~/Views/Shared/_LayoutAdminLTE.cshtml";
+}
+
+<h2>Parametros al sistema</h2>
+
+<span>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<br />
+<br />
+<div class="text-left">
+
+    @Html.ActionLink("Agregar Categoria", "Create", "Categorias", new { @class = "btn primary" }, null)
+
+</div>
+
+<br />
+
+<div class="text-left">
+
+    @Html.ActionLink("Agregar Mas Parametros", "IndexAddCategoria", new { @class = "btn primary" }, null)
+
+</div>

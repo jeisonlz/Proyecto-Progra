@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProyectoPr5.DAL.Usuarios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdminLTE.cshtml";
+}
+
+<h3>Usuarios Registrados</h3>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idRol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cedula)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.idRol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+
+            <td>
+                @Html.ActionLink("Modificar Rol", "Edit", new { id = item.idUsuario }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idUsuario }) |
+            </td>
+        </tr>
+
+    }
+
+
+
+</table>
+
+<p>
+    @Html.ActionLink("Crear un Usuario nuevo", "Create")
+</p>
+<h4> Rol = 0     | <span class="badge badge-secondary">   Administrador</span></h4>
+<h4> Rol = 1     | <span class="badge badge-secondary">   Custodia</span></h4>
+<h4> Rol = 2     | <span class="badge badge-secondary">   Invitado</span></h4>

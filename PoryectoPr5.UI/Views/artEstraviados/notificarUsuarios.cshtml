@@ -1,0 +1,53 @@
+﻿
+
+
+
+
+@model PoryectoPr5.UI.Models.ContactarModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutCustodia.cshtml";
+}
+
+@Html.Raw(TempData["msg"])
+@using (Html.BeginForm("enviarMail", "artEstraviados", FormMethod.Post))
+{
+    <div class="container">
+        <div class="card card-register mx-auto mt-5">
+            <div class="card-header">Mensaje para contactos</div>
+            <div class="card-body">
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-label-group">
+                                @Html.TextAreaFor(model => model.mensaje, new { @class = "form-control bg-primary", required = "required", rows = "5" })
+
+                                <label for="inputPassword">Ingrese el mensaje antes de enviar</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <br /><br />
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <br>
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Enviar el Mensaje a todos lo usuarios" class="btn btn-primary col-md-4" />
+    </div>
+}

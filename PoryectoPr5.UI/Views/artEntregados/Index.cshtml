@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProyectoPr5.DAL.artEntregados>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCustodia.cshtml";
+}
+
+<h2>Articulos Entregados</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nombre del articulo")
+        </th>
+        <th>
+            @Html.DisplayName("Fecha de Entrega")
+        </th>
+        <th>
+            @Html.DisplayName("Descripcion del Articulo")
+        </th>
+        <th>
+            @Html.DisplayName("Fecha de Entrega")
+        </th>
+      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaIngreso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria.nombreCategoria)
+        </td>
+      
+    </tr>
+}
+
+</table>

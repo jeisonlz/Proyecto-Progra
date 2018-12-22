@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2bc2f84f56194040a5c1cb976bc2a653" Name="Diagram1">
+        <EntityTypeShape EntityType="ProyectoPR5Model.Usuarios" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoPR5Model.artCustodia" Width="1.5" PointX="5.625" PointY="4.125" />
+        <EntityTypeShape EntityType="ProyectoPR5Model.artEntregados" Width="1.5" PointX="5.625" PointY="7.125" />
+        <EntityTypeShape EntityType="ProyectoPR5Model.artEstraviados" Width="1.5" PointX="5.625" PointY="1.25" />
+        <EntityTypeShape EntityType="ProyectoPR5Model.Categoria" Width="1.5" PointX="3.375" PointY="4.25" />
+        <AssociationConnector Association="ProyectoPR5Model.FK__artCustod__idCat__5812160E" />
+        <AssociationConnector Association="ProyectoPR5Model.FK__artEntreg__idCat__5AEE82B9" />
+        <AssociationConnector Association="ProyectoPR5Model.FK__artEstrav__idCat__5DCAEF64" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

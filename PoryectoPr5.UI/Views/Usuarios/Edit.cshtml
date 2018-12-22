@@ -1,0 +1,82 @@
+﻿@model ProyectoPr5.DAL.Usuarios
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdminLTE.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Usuarios</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.idUsuario)
+
+    <div class="form-group">
+        @Html.Label("Numero de Cedula", htmlAttributes: new { @class = "control-label col-md-1", @readonly = "true" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cedula, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            @Html.ValidationMessageFor(model => model.cedula, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.Label("ID del Rol", htmlAttributes: new { @class = "control-label col-md-1" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.idRol, new { htmlAttributes = new { @class = "form-control", @text = "hola" } })
+            @Html.ValidationMessageFor(model => model.idRol, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Nombre del Usuario", htmlAttributes: new { @class = "control-label col-md-1", @readonly = "true" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Numero de Celular", htmlAttributes: new { @class = "control-label col-md-1", @readonly = "true" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Mail", htmlAttributes: new { @class = "control-label col-md-1 ", @readonly = "true" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Password", htmlAttributes: new { @class = "control-label col-md-1 ", style = "display:none" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.pass, new { htmlAttributes = new { @class = "form-control", style = "display:none" } })
+            @Html.ValidationMessageFor(model => model.pass, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-5">
+            <input type="submit" value="Cambiar Rol Ahora" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+
+}
+
+<div>
+    @Html.ActionLink("Atras", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
